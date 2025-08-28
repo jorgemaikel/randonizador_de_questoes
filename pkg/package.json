@@ -1,0 +1,15 @@
+{
+  "name": "aleatorizador",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "aleatorizador_bg.wasm",
+    "aleatorizador.js",
+    "aleatorizador.d.ts"
+  ],
+  "main": "aleatorizador.js",
+  "types": "aleatorizador.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
