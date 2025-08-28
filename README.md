@@ -37,30 +37,40 @@ A biblioteca espera receber os dados em formato JSON, seguindo esta estrutura de
 perguntas.json
 
 JSON
-'
-[  
-  {  
-    "pergunta": "Qual a capital do Brasil?",
-    "alternativas": [  
-      "Rio de Janeiro",  
-      "São Paulo",  
-      "Brasília",  
-      "Belo Horizonte"  
-    ],  
-    "resposta_correta": "Brasília"  
-  },  
-  {  
-    "pergunta": "Qual o sistema operacional mais usado no mundo?",  
-    "alternativas": ["MacOS", "DOS", "Windows", "Android"],  
-    "resposta_correta": "Android"  
-  },  
-  {  
-    "pergunta": "Qual o maior planeta do sistema solar?",  
-    "alternativas": ["Terra", "Júpiter", "Saturno", "Marte"],  
-    "resposta_correta": "Júpiter"  
-  }  
-]  
-'
+
+    [  
+      {  
+        "pergunta": "Qual a capital do Brasil?",
+        "alternativas": [  
+          "Rio de Janeiro",  
+          "São Paulo",  
+          "Brasília",  
+          "Belo Horizonte"  
+        ],  
+        "resposta_correta": "Brasília"  
+      },  
+      {  
+        "pergunta": "Qual o sistema operacional mais usado no mundo?",  
+        "alternativas": [  
+          "MacOS",  
+          "DOS",  
+          "Windows",  
+          "Android"  
+        ],  
+        "resposta_correta": "Android"  
+      },  
+      {  
+        "pergunta": "Qual o maior planeta do sistema solar?",  
+        "alternativas": [  
+          "Terra",  
+          "Júpiter",  
+          "Saturno",  
+          "Marte"  
+        ],  
+        "resposta_correta": "Júpiter"  
+      }  
+    ]  
+
 
 > Passo 2: Instalação
 Copie a pasta pkg gerada pelo wasm-pack para a raiz do seu projeto web.
@@ -71,31 +81,31 @@ No seu arquivo JavaScript, você precisa importar a função da biblioteca, busc
 main.js
 
 JavaScript
-'
-import init, { embaralhar_perguntas } from './pkg/aleatorizador.js';  
 
-async function run() {  
-    // 1. Inicializa o módulo WebAssembly  
-    await init();  
+    import init, { embaralhar_perguntas } from './pkg/aleatorizador.js';  
+    
+    async function run() {  
+        // 1. Inicializa o módulo WebAssembly  
+        await init();  
 
-    // Exemplo de uso com um botão  
-    const botao = document.getElementById('meuBotao');  
-    botao.addEventListener('click', async () => {  
-        // 2. O JavaScript busca o arquivo JSON  
-        const resposta = await fetch('./perguntas.json');  
-        const json_string = await resposta.text();  
+        // Exemplo de uso com um botão  
+        const botao = document.getElementById('meuBotao');  
+        botao.addEventListener('click', async () => {  
+            // 2. O JavaScript busca o arquivo JSON  
+            const resposta = await fetch('./perguntas.json');  
+            const json_string = await resposta.text();  
+      
+            // 3. O conteúdo do JSON é passado para a função WebAssembly  
+            const perguntasEmbaralhadas = embaralhar_perguntas(json_string);  
+              
+            // 4. Agora você pode usar o array de perguntas!  
+            console.log(perguntasEmbaralhadas);  
+            // Ex: exibir na tela...  
+        });  
+        }  
   
-        // 3. O conteúdo do JSON é passado para a função WebAssembly  
-        const perguntasEmbaralhadas = embaralhar_perguntas(json_string);  
-          
-        // 4. Agora você pode usar o array de perguntas!  
-        console.log(perguntasEmbaralhadas);  
-        // Ex: exibir na tela...  
-    });  
-}  
-  
-run();  
-'
+    run();  
+
 
 Lembre-se de carregar seu script no HTML como um módulo: <script type="module" src="./main.js"></script>.
 
