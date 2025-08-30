@@ -112,8 +112,6 @@ Lembre-se de carregar seu script no HTML como um módulo: <script type="module" 
 ## Solução de Problemas Comuns
 * Erro de MIME Type ou CORS: Este erro geralmente significa que você está abrindo o index.html diretamente no navegador. Solução: Use um servidor local.
 
-* Função não encontrada (...does not provide an export named...): Isso indica que o seu pacote .wasm está dessincronizado com o seu código JavaScript. Solução: Recompile o projeto Rust com wasm-pack build --target web para garantir que a pasta pkg está atualizada.
-
 * As perguntas não são exibidas na tela (container is null): Verifique se o id do elemento no seu HTML é exatamente o mesmo que você está usando no document.getElementById() do JavaScript.
 
 Agradeço por usar essa biblioteca e aguardo o feedback e/ou sugestões de melhoria.
