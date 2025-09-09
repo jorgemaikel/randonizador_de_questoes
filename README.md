@@ -5,11 +5,11 @@ Uma biblioteca de alta performance para embaralhar questões e alternativas de u
 
 
 ## Por que WebAssembly?
-A escolha de criar esta biblioteca em Rust e compilá-la para WebAssembly (Wasm) foi intencional e trouxe várias vantagens para o projeto:
+A escolha de criar esta biblioteca compilada para WebAssembly (Wasm) foi intencional e trouxe várias vantagens para o projeto:
 
-* Performance: O Rust é conhecido por sua velocidade excepcional, próxima à de C++. Para um quiz com centenas ou milhares de perguntas, o processo de embaralhar tudo em JavaScript poderia causar lentidão. Com o WebAssembly, essa tarefa é executada em velocidade quase nativa, garantindo uma experiência de usuário fluida e instantânea.
+* Performance: Para um quiz com centenas ou milhares de perguntas, o processo de embaralhar tudo em JavaScript poderia causar lentidão. Com o WebAssembly, essa tarefa é executada em velocidade quase nativa, garantindo uma experiência de usuário fluida e instantânea.
 
-* Portabilidade e Reuso: A lógica de embaralhar foi escrita uma única vez em Rust. Agora, o módulo .wasm gerado pode ser executado em qualquer lugar que suporte WebAssembly: todos os navegadores modernos, Node.js no backend, e até mesmo em outros ambientes. A lógica principal não está presa ao ecossistema JavaScript.
+* Portabilidade e Reuso: O módulo .wasm gerado pode ser executado em qualquer lugar que suporte WebAssembly: todos os navegadores modernos, Node.js no backend, e até mesmo em outros ambientes. A lógica principal não está presa ao ecossistema JavaScript.
 
 * Segurança: O WebAssembly é executado em um ambiente "sandbox" (uma caixa de areia segura) no navegador. Isso significa que ele não tem acesso direto ao sistema do usuário, oferecendo um nível de segurança e isolamento que é ideal para bibliotecas de terceiros.
 
