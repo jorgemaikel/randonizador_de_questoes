@@ -1,18 +1,8 @@
 # Aleatorizador de Quiz em Rust e WebAssembly
+
 ## O que é o projeto?
 Uma biblioteca de alta performance para embaralhar questões e alternativas de um quiz, compilada em WebAssembly para uso em qualquer projeto web moderno. Desenvolvida em Rust e compilada em WebAssembly, esse projeto foi desenvolvido visando oferecer uma solução rápida e segura para aleatorização de dados no lado do cliente.
 
-## Por que escolhi o WebAssembly?
-A aleatorização basea-se na geração de um número aleatório associado ao número de questões contidas em um arquivo JSON. Essa geração de número aleatório possui um custo computacional. Devido a isso, 
-
-## Recursos
-* Aleatorização de Perguntas: A ordem das questões é completamente embaralhada a cada chamada.
-
-* Aleatorização de Alternativas: Para cada questão, a ordem das alternativas também é embaralhada.
-
-* Permutação Garantida: A biblioteca garante que todas as questões fornecidas serão utilizadas uma única vez, sem repetições, até o final da lista.
-
-* Desacoplado: A lógica de embaralhar (Wasm) é totalmente separada dos dados (JSON), permitindo que você atualize as perguntas sem precisar recompilar a biblioteca.
 
 ## Por que WebAssembly?
 A escolha de criar esta biblioteca em Rust e compilá-la para WebAssembly (Wasm) foi intencional e trouxe várias vantagens para o projeto:
@@ -25,8 +15,20 @@ A escolha de criar esta biblioteca em Rust e compilá-la para WebAssembly (Wasm)
 
 Em resumo, usamos WebAssembly para delegar o "trabalho pesado" de processamento a uma linguagem mais performática, mantendo a flexibilidade e a facilidade de integração de uma aplicação web.
 
+
+## Recursos
+* Aleatorização de Perguntas: A ordem das questões é completamente embaralhada a cada chamada.
+
+* Aleatorização de Alternativas: Para cada questão, a ordem das alternativas também é embaralhada.
+
+* Permutação Garantida: A biblioteca garante que todas as questões fornecidas serão utilizadas uma única vez, sem repetições, até o final da lista.
+
+* Desacoplado: A lógica de embaralhar (Wasm) é totalmente separada dos dados (JSON), permitindo que você atualize as perguntas sem precisar recompilar a biblioteca.
+
+
 ## Como Usar
 Para integrar o Aleatorizador de Quiz em seu projeto, siga os passos abaixo.
+
 
 ## Pré-requisitos
 Um servidor web local. O navegador, por razões de segurança (CORS), não permite carregar módulos WebAssembly diretamente do sistema de arquivos (usando o protocolo file:///). A forma mais simples de iniciar um servidor é com Python: python -m http.server.
@@ -108,6 +110,7 @@ JavaScript
 
 
 Lembre-se de carregar seu script no HTML como um módulo: <script type="module" src="./main.js"></script>.
+
 
 ## Solução de Problemas Comuns
 * Erro de MIME Type ou CORS: Este erro geralmente significa que você está abrindo o index.html diretamente no navegador. Solução: Use um servidor local.
