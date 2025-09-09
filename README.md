@@ -74,10 +74,10 @@ JSON
     ]  
 
 
-> Passo 2: Instalação
+* Passo 2: Instalação
 Copie a pasta pkg gerada pelo wasm-pack para a raiz do seu projeto web.
 
-> Passo 3: Chamando a Biblioteca
+* Passo 3: Chamando a Biblioteca
 No seu arquivo JavaScript, você precisa importar a função da biblioteca, buscar o conteúdo do seu JSON e passar os dados para a função.
 
 main.js
